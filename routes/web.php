@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Auth\AuthController;
+use App\Http\Controllers\Backend\Category\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\backend\Menu\MenuController;
+use App\Http\Controllers\Backend\Post\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,8 @@ Route::group(['middleware'=>'AuthCheck'],function(){
         // Route::post('icon/update/{id}','Backend\Menu\MenuIconController@update')->name('menu.icon.update');
         // Route::post('icon/delete','Backend\Menu\MenuIconController@delete')->name('menu.icon.delete');
     });
+
+    Route::resource('category',CategoryController::class);
+    Route::resource('post',PostController::class);
+   
 });
